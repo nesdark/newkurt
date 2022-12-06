@@ -1,0 +1,182 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --bg-primary-color: hsl(203, 61%, 48%);
+
+  --fc-primary: hsl(206, 59%, 44%);
+  --fc-gray: hsl(0, 0%, 60%);
+
+  --header-height: 6.5rem;
+
+  --fw-heading: 700;
+  --fw-body: 400;
+
+  --fd-italic: italic;
+}
+
+body {
+  overflow: hidden;
+  font-family: "Rubik", sans-serif;
+}
+
+.menu,
+main {
+  overflow-y: auto;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: var(--header-height);
+
+  background-color: var(--bg-primary-color);
+
+  padding-inline: 1.6rem;
+}
+
+header .logo img {
+  width: 13rem;
+}
+
+header nav .btn-menu {
+  display: block;
+
+  width: 3.2rem;
+
+  cursor: pointer;
+}
+
+header nav .btn-menu .bar {
+  height: 4px;
+
+  background-color: white;
+  margin-top: 5px;
+
+  transition: 0.3s;
+}
+
+/* ==========================================================================
+  MENU
+  ========================================================================== */
+
+body.menu-active {
+  overflow: hidden;
+}
+
+body.menu-active .menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+
+  transition: 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100vw;
+  height: 100vh;
+
+  padding: 5.4rem clamp(2.3rem, 1rem + 5vw, 5.4rem);
+
+  position: absolute;
+  top: var(--header-height);
+  left: 0;
+  transform: translateX(100%);
+
+  transition: 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.menu section {
+  width: 100%;
+
+  padding-bottom: 4.4rem;
+
+  border-bottom: 2px solid #ecf2fa;
+}
+
+.menu #user-img {
+  text-align: center;
+}
+
+.menu #user-img img {
+  width: clamp(15rem, 1rem + 60vw, 20rem);
+  height: clamp(15rem, 1rem + 60vw, 20rem);
+
+  border-radius: 50%;
+
+  object-fit: cover;
+}
+
+.menu #user-name {
+  padding-block: 1.5rem;
+}
+
+.menu #user-name h2 {
+  font-size: 2.6rem;
+  line-height: 3.1rem;
+
+  color: var(--fc-primary);
+}
+
+.menu #user-name p {
+  font-size: 2.2rem;
+  line-height: 3rem;
+
+  color: var(--fc-gray);
+}
+
+.menu #social-links,
+.menu #organization {
+  padding-block: 2.6rem;
+}
+
+.menu section ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  list-style: none;
+}
+
+.menu section ul li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  width: 100%;
+
+  font-size: clamp(1.5rem, 1rem + 1.5vw, 2rem);
+  line-height: 2.4rem;
+
+  color: var(--fc-primary);
+}
+
+.menu #social-links ul img {
+  width: clamp(2.3rem, 1rem + 3vw, 3rem);
+}
+
+.menu #social-links ul a {
+  text-decoration: none;
+}
+
+body.menu-active header nav .btn-menu .bar:nth-child(1) {
+  transform: translateY(7px) rotate(-45deg);
+}
+
+body.menu-active header nav .btn-menu .bar:nth-child(2) {
+  opacity: 0;
+}
+body.menu-active header nav .btn-menu .bar:nth-child(3) {
+  transform: translateY(-11px) rotate(220deg);
+}
